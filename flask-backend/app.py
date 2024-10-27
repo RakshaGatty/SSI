@@ -5,6 +5,8 @@ import cv2
 import numpy as np
 from tensorflow.keras.applications.efficientnet import preprocess_input
 from joblib import load
+import gzip
+import shutil
 from ultralytics import YOLO
 from tensorflow.keras.models import Model
 from tensorflow.keras.applications import EfficientNetB0
@@ -14,9 +16,23 @@ CORS(app)  # Enable CORS for all routes
 
 app.config['UPLOAD_FOLDER'] = 'Uploads/'
 
+# Function to decompress .gz files
+def decompress_file(input_file, output_file):
+    with gzip.open(input_file, 'rb') as f_in:
+        with open(output_file, 'wb') as f_out:
+            shutil.copyfileobj(f_in, f_out)
+
+# Paths to compressed model files
+voting_model_path = 'SSI_Models/voting.joblib.gz'
+label_encoder_path = 'SSI_Models/label_encoder.joblib.gz'
+
+# Decompressing the models
+decompress_file(voting_model_path, 'SSI_Models/advanced_voting_ensemble_efficient_model.joblib')
+decompress_file(label_encoder_path, 'SSI_Models/label_efficient_encoder.joblib')
+
 # Load the trained model and label encoder
-voting_ensemble = load(r'C:\Users\deeks_5t46200\OneDrive\Desktop\S\SSI\flask-backend\SSI_Models\advanced_voting_ensemble_efficient_model.joblib')
-label_encoder = load(r'C:\Users\deeks_5t46200\OneDrive\Desktop\S\SSI\flask-backend\SSI_Models\label_efficient_encoder.joblib')
+voting_ensemble = load('SSI_Models/advanced_voting_ensemble_efficient_model.joblib')
+label_encoder = load('SSI_Models/label_efficient_encoder.joblib')
 
 # Initialize YOLOv8 model and EfficientNetB0
 yolo_model = YOLO('yolov8s-seg.pt')
