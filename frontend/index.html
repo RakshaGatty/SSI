@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Species Identification</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Snake Snap</h1>
+        <nav>
+            <ul>
+                <li><a href="#" id="aboutUsLink">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#" id="funFactsLink">Interesting Facts</a></li> <!-- Fun Facts Link -->
+                <li><a href="#" id="gallery">Our Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="uploadSection">
+        <h2>Identify a Snake Species</h2>
+        <form id="uploadForm" action="http://127.0.0.1:5000/upload" method="post" enctype="multipart/form-data">
+            <label for="file">Upload an Image:</label>
+            <input type="file" id="file" name="file" accept="image/*" required>
+            <button type="submit">Submit</button>
+        </form>
+
+         <div id="result"></div>
+    <div id="uploadedImageContainer" style="display:none; text-align: center;">
+        <h3>Uploaded Image:</h3>
+        <img id="uploadedImage" src="" alt="Uploaded Snake Image" style="max-width: 300px; display: block; max-height: 300px; margin: 0 auto;">
+    </div>
+    <div id="speciesDetails" style="text-align: center;"></div>
+    </section>
+
+    <!-- About Us Section (Initially hidden) -->
+    <section id="aboutUsSection" style="display:none;">
+        <div class="card">
+            <h2>About Snake Snap</h2>
+            <p>
+                Snake Snap was born out of a passion for educating people about snakes. The app now helps people worldwide identify snakes, with a mission to reduce fear and protect snakes.
+            </p>
+            <h3>Mission</h3>
+            <p>
+                Our mission is to empower individuals with accurate snake species identification knowledge to promote safety and coexistence.
+            </p>
+            <button id="backToUpload">Back</button> <!-- Back Button -->
+        </div>
+    </section>
+
+    <!-- Fun Facts Section (Initially hidden) -->
+    <section id="funFactsSection" style="display:none;">
+        <div class="card">
+            <h2>Interesting Facts About Snakes</h2>
+    <div class="fact">Snakes can see infrared light, allowing them to detect warm-blooded prey.</div>
+    <div class="fact">Some snakes can swim underwater for hours without needing to surface.</div>
+    <div class="fact">The largest snake ever recorded was a green anaconda measuring over 29 feet long!</div>
+    <div class="fact">Not all snakes are venomous; many are harmless and beneficial to ecosystems.</div>
+    <div class="fact">Snakes can unhinge their jaws to swallow prey much larger than their heads.</div>
+            <button id="backToUploadFromFacts">Back</button> <!-- Back Button -->
+        </div>
+    </section>
+
+    
+    
+    <section id="gallerySection" style="display:none;">
+        <h2 style="color:rgb(244, 236, 236)">Indian Snakes Gallery</h2>
+        <div class="gallery">
+            <div class="snake-card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="Indian_Krait.jpg" alt="Snake 1">
+                    </div>
+                    <div class="card-back">
+                        <h3>Indian Krait</h3>
+                        <p>Bungarus is a genus of venomous snakes in the family Elapidae. The genus is native to Asia. Often found on the floor of tropical forests in South Asia, Southeast Asia and Southern China, they are medium-sized, highly venomous snakes with a total length typically not exceeding 2 metres.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="snake-card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="Indian_Cobra.jpg" alt="Snake 2">
+                    </div>
+                    <div class="card-back">
+                        <h3>Indian Cobra</h3>
+                        <p>The Indian cobra, also known commonly as the spectacled cobra, Asian cobra, or binocellate cobra, is a species of cobra, a venomous snake in the family Elapidae. The species is native to the Indian subcontinent, and is a member of the "big four" species that are responsible for the most snakebite cases in India.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="snake-card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="IndianPython.jpg" alt="Snake 2">
+                    </div>
+                    <div class="card-back">
+                        <h3>Indian Python</h3>
+                        <p>The Indian python (Python molurus) is a large python species native to tropical and subtropical regions of the Indian subcontinent and Southeast Asia.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="snake-card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="Sawscaled.jpg" alt="Snake 2">
+                    </div>
+                    <div class="card-back">
+                        <h3>Echis</h3>
+                        <p>Echis is a genus of vipers found in the dry regions of Africa, the Middle East, India, Sri Lanka and Pakistan. They have a characteristic threat display, rubbing sections of their body together to produce a "sizzling" warning sound. The name Echis is the Latin transliteration of the Greek word for "viper".</p>
+                    </div>
+                </div>
+            </div>
+            <div class="snake-card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="KingCobra.jpg" alt="Snake 2">
+                    </div>
+                    <div class="card-back">
+                        <h3>King Cobra</h3>
+                        <p>The king cobra is a venomous snake endemic to Asia. The sole member of the genus Ophiophagus, it is not taxonomically a true cobra, despite its common name and some resemblance. With an average length of 3.18 to 4 m and a record length of 5.85 m, it is the world's longest venomous snake.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="snake-card" onclick="flipCard(this)">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="Russell-s-Viper.webp" alt="Snake 2">
+                    </div>
+                    <div class="card-back">
+                        <h3>Russell's Viper</h3>
+                        <p>
+                            Russell's viper is a highly venomous snake in the family Viperidae native to South Asia. It was described in 1797 by George Shaw and Frederick Polydore Nodder. It is named after Patrick Russell and is one of the big four snakes in India.</p>
+                    </div>
+                </div>
+            </div>
+           
+            
+            <!-- Add more snake images here -->
+           
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+    <script>
+        // Show About Us section when the "About Us" link is clicked
+        document.getElementById("aboutUsLink").addEventListener("click", function (event) {
+            event.preventDefault();
+            document.getElementById("aboutUsSection").style.display = "block";
+            document.getElementById("uploadSection").style.display = "none";
+            document.getElementById("gallerySection").style.display = "none"; // Hide gallery
+            document.getElementById("funFactsSection").style.display = "none"; // Hide fun facts
+        });
+
+        // Show Fun Facts section when the "Fun Facts" link is clicked
+        document.getElementById("funFactsLink").addEventListener("click", function (event) {
+            event.preventDefault();
+            document.getElementById("funFactsSection").style.display = "block";
+            document.getElementById("uploadSection").style.display = "none";
+            document.getElementById("aboutUsSection").style.display = "none"; // Hide about us
+            document.getElementById("gallerySection").style.display = "none"; // Hide gallery
+        });
+
+        // Show Gallery section when the "Our Gallery" link is clicked
+        document.querySelector("nav ul li:nth-child(4) a").addEventListener("click", function (event) {
+            event.preventDefault();
+            document.getElementById("gallerySection").style.display = "block";
+            document.getElementById("uploadSection").style.display = "none";
+            document.getElementById("aboutUsSection").style.display = "none"; // Hide about us
+            document.getElementById("funFactsSection").style.display = "none"; // Hide fun facts
+        });
+
+        // Go back to the upload section from the About Us section
+        document.getElementById("backToUpload").addEventListener("click", function () {
+            document.getElementById("aboutUsSection").style.display = "none";
+            document.getElementById("uploadSection").style.display = "block";
+            document.getElementById("gallerySection").style.display = "none"; // Hide gallery
+            document.getElementById("funFactsSection").style.display = "none"; // Hide fun facts
+        });
+
+        // Go back to the upload section from the Fun Facts section
+        document.getElementById("backToUploadFromFacts").addEventListener("click", function () {
+            document.getElementById("funFactsSection").style.display = "none";
+            document.getElementById("uploadSection").style.display = "block";
+            document.getElementById("gallerySection").style.display = "none"; // Hide gallery
+            document.getElementById("aboutUsSection").style.display = "none"; // Hide about us
+        });
+
+        function flipCard(card) {
+            card.classList.toggle('flipped'); // Toggle the flipped class
+        }
+    </script>
+
+    <footer>
+        <p>Follow us on Instagram: <a href="https://instagram.com/yourusername" style="color: white;">@yourusername</a></p>
+        <p>Contact us: <strong>+123 456 7890</strong></p>
+        <p>&copy; 2024 Snake Snap. All rights reserved.</p>
+    </footer>
+</body>
+</html>

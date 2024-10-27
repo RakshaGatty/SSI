@@ -1,0 +1,492 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-image: url('edited.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: rgb(11, 11, 11);
+    background-color: #aeecca;
+}
+
+html, body {
+    height: 100%;
+}
+footer {
+    
+    margin-top: auto; /* Pushes the footer to the bottom of the page */
+    background-color: #333; /* Footer background color */
+    color: rgb(18, 17, 17); /* Footer text color */
+    text-align: center; /* Center the text */
+    padding: 20px; /* Padding for the footer */
+    position: relative; /* Ensures the footer remains in its position */
+    width: 100%; /* Ensures the footer takes the full width */
+}
+header {
+    background-color: #67a9f0;
+    color: rgb(11, 11, 11);
+    padding: 10px;
+    text-align: center;
+}
+main {
+    flex: 1; /* Allow main content to grow and take up available space */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+}
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Space between cards */
+    padding: 20px;
+}
+
+/* Snake card styling */
+.snake-card {
+    width: 250px; /* Increased width for a bigger look */
+    height: 350px; /* Increased height */
+    perspective: 1000px;
+    transition: transform 0.3s ease;
+}
+
+.snake-card:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Inner card for flip animation */
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+/* Front and back of the card */
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers the card area */
+    border-radius: 15px;
+}
+
+/* Back of the card styling */
+.card-back {
+    background-color: #f1f1f1;
+    padding: 20px;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.snake-card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-back h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card-back p {
+    font-size: 1rem;
+    text-align: center;
+}
+
+.snake-card {
+    width: 150px; /* Adjust the width as needed */
+    height: 200px; /* Adjust the height as needed */
+    perspective: 1000px; /* Adds perspective for the 3D flip effect */
+    margin: 10px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d; /* Enables 3D space for the flip */
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hides the back side when not flipped */
+}
+
+#funFactsSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('AboutUs.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 20px;
+}
+
+
+#funFactsSection .card {
+    background-color: rgba(187, 223, 233, 0.85);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}
+
+#funFactsSection h2, #funFactsSection h3 {
+    color: #007bff;
+}
+
+#funFactsSection p {
+    font-size: 1.1em;
+    line-height: 1.6em;
+    margin: 15px 0;
+    color: #333;
+}
+
+#funFactsSection button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#funFactsSection button:hover {
+    background-color: #0056b3;
+}
+.card-front {
+    z-index: 2; /* Shows the front side initially */
+}
+
+.card-back {
+    transform: rotateY(180deg); /* Flips the back side */
+    background-color: #fff; /* Optional: background color for the back side */
+    padding: 10px; /* Optional: padding for text */
+}
+
+.snake-card.flipped .card-inner {
+    transform: rotateY(180deg); /* Flips the card */
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+ 
+
+#uploadSection {
+    margin: 10px auto;
+    max-width: 3000px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slight transparency */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="file"] {
+    margin: 10px 0;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#result, #speciesDetails {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #2c3e50;
+    text-align: center;
+}
+
+img {
+    max-width: 200px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#aboutUsSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('AboutUs.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 20px;
+}
+
+#aboutUsSection .card {
+    background-color: rgba(187, 223, 233, 0.85);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}
+
+#aboutUsSection h2, #aboutUsSection h3 {
+    color: #007bff;
+}
+
+#aboutUsSection p {
+    font-size: 1.1em;
+    line-height: 1.6em;
+    margin: 15px 0;
+    color: #333;
+}
+
+#aboutUsSection button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#aboutUsSection button:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    background-color: #67a9f0;
+    color: rgb(14, 14, 14);
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+#interestingFacts {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding for space */
+    max-width: 600px; /* Maximum width for the section */
+    margin: 20px auto; /* Center the section */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+#interestingFacts h2 {
+    text-align: center;
+    color: #007bff; /* Title color */
+    margin-bottom: 15px; /* Space below title */
+    font-size: 1.8em; /* Larger font size for title */
+}
+
+.fact {
+    background-color: #f0f8ff; /* Light background for each fact */
+    margin: 10px 0; /* Margin between facts */
+    padding: 10px; /* Padding for facts */
+    border-radius: 5px; /* Rounded corners for facts */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow for facts */
+    transition: transform 0.2s ease; /* Smooth effect for hover */
+    color: #333; /* Default text color */
+}
+
+.fact:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+    background-color: #e6f7ff; /* Change background on hover */
+    color: #007bff; /* Change text color on hover */
+}
+
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.snake-card {
+    width: 400px; /* Adjust to fit your layout */
+    margin: 5px;
+    margin-bottom: 20px;
+    perspective: 1000px; /* For 3D flip effect */
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    backface-visibility: hidden;
+}
+
+.card-front img {
+    width: 200px; /* Ensure the image fills the card width */
+    height: 200px; /* Set a fixed height for all images */
+    object-fit: contain; /* Ensure the image covers the entire area without distortion */
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    padding: 5px;
+    box-sizing: border-box;
+    background-color: #c10d0d;
+}
+
+.snake-card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;      /* Stack elements vertically */
+    justify-content: center;     /* Horizontally center content */
+    align-items: center;         /* Vertically center content */
+    text-align: center;          /* Center-align text within the back card */
+}
+
+.card-back h3 {
+    font-weight: bold;
+    color: #007bff;              /* Highlight color (you can adjust) */
+    margin-bottom: 10px;         /* Space between the name and content */
+}
+
+.card-back p {
+    font-size: 1.1em;            /* Adjust font size for content */
+    color: #333;                 /* Content text color */
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+ /* Styles for species details */
+ .species-details-container {
+    width: 100%; /* Set the width to 90% of the parent container */
+    max-width: 2000px; /* Optional: Set a maximum width */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Add padding for better spacing */
+    background-color: #f9f9f9; /* Optional: Add a background color */
+    border: 1px solid #ddd; /* Optional: Add a border */
+    border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+.species-detail {
+    margin-bottom: 10px; /* Add space between details */
+}
+
+
+.species-detail {
+    display: flex;
+    margin-bottom: 10px; /* Space between items */
+}
+
+.species-detail label {
+    font-weight: bold; /* Make labels bold */
+    margin-right: 10px; /* Space between label and text */
+    width: 120px; /* Fixed width for labels */
+}
+
+.species-detailspan {
+    flex: 1; /* Allow text to take the remaining space */
+}
